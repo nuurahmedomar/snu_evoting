@@ -1,0 +1,211 @@
+/* #addnew{ */
+  /* From https://css.glass */
+/* background: rgba(255, 255, 255, 0.35);
+border-radius: 16px;
+box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+backdrop-filter: blur(10.2px);
+-webkit-backdrop-filter: blur(10.2px);
+border: 1px solid rgba(255, 255, 255, 0.3);
+} */
+
+<style>
+  body {
+    background: #d2d6de;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+    font-family: Arial, sans-serif;
+  }
+
+  h1 {
+    text-align: center;
+    font-size: 36px;
+    color: #333;
+  }
+
+  .modal-content {
+    background: #fff;
+    padding: 20px;
+    border-radius: 5px;
+    text-align: center;
+  }
+
+  .form-group {
+    margin-bottom: 15px;
+  }
+
+  input {
+    width: 100%;
+    padding: 8px;
+    margin: 5px 0;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+  }
+
+  label {
+    text-align: left;
+    display: block;
+    margin-bottom: 5px;
+    color: #333;
+  }
+
+  .modal-footer {
+    text-align: center;
+  }
+
+  button {
+    padding: 10px 20px;
+    border: none;
+    border-radius: 4px;
+    background-color: #337ab7;
+    color: #fff;
+    cursor: pointer;
+    font-size: 16px;
+  }
+</style>
+
+
+
+
+
+
+
+
+
+
+
+
+
+<?php
+	// Establish a database connection
+	$servername = "localhost";
+	$username = "root";
+	$password = "";
+	$database = "id21241452_tijabo";
+
+	$conn = new mysqli($servername, $username, $password, $database);
+
+	if ($conn->connect_error) {
+		die("Connection failed: " . $conn->connect_error);
+	}
+
+	if(isset($_POST['add'])){
+		$firstname = $_POST['firstname'];
+		$lastname = $_POST['lastname'];
+		$username = $_POST['username'];
+		$created_date = $_POST['date'];
+		$password = password_hash($_POST['password'], PASSWORD_DEFAULT);
+		$filename = $_FILES['photo']['name'];
+		
+		if(!empty($filename)){
+			move_uploaded_file($_FILES['photo']['tmp_name'], 'images'.$filename);	
+		}
+
+		$sql = "INSERT INTO admin (username, password, firstname, lastname, photo, created_on) VALUES ('$username', '$password', '$firstname', '$lastname', '$filename', '$created_date')";
+		
+		if($conn->query($sql)){
+			echo 'Admin added successfully';
+		}
+		else{
+			echo 'Error: ' . $conn->error;
+		}
+	}
+	else{
+		echo 'Fill up add form first';
+	}
+
+	// Close the database connection
+	$conn->close();
+?>
+
+
+
+
+
+
+
+
+
+
+fixing 
+<head>
+    <title>SNU Voting System</title>
+</head>
+
+<style>
+  body {
+    background: #d2d6de;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+    font-family: Arial, sans-serif;
+  }
+
+  h1 {
+    text-align: center;
+    font-size: 36px;
+    color: #333;
+  }
+
+  h4 {
+    color: #949085;
+    font-size: 15px;
+  }
+
+  .modal-content {
+    background: #fff;
+    padding: 10px; /* Adjusted padding */
+    border-radius: 0; /* Removed border-radius */
+    text-align: center;
+  }
+
+  .form-group {
+    margin-bottom: 10px; /* Reduced margin */
+  }
+
+  input {
+    width: calc(100% - 20px); /* Adjusted input width */
+    padding: 8px;
+    margin: 5px 0;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+  }
+
+  input::placeholder {
+    font-size: 14px; /* Increased size of placeholders */
+  }
+
+  label {
+    text-align: left;
+    display: block;
+    margin-left: 10px;
+    margin-bottom: 5px;
+    color: #333;
+  }
+
+  .modal-footer {
+    text-align: center;
+  }
+
+  button {
+    padding: 10px 20px;
+    border: none;
+    border-radius: 4px;
+    background-color: #337ab7;
+    color: #fff;
+    cursor: pointer;
+    font-size: 16px;
+  }
+  a {
+    text-decoration: none;
+  }
+  a:hover{
+    color: red;
+  }
+</style>

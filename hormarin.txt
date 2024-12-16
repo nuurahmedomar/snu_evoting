@@ -1,0 +1,32 @@
+system kan wa system logu talagalay in lagu qabto doorashoyinka jaamacada , sida darteed waxa la rabaa inuu noqdo mid responsive ah laguna isticmali karo taleefan .
+
+
+###Making The Landing Page responsive 
+1) The announcement heading is not responsive .
+2) The footer isn't responsive .
+
+####Making The Log in Page responsive in the admin and voter
+1) the sign in button must be center and must be responsive 
+
+
+
+
+####Voter Part Development
+
+
+####Making the Voter Dashoboard responsive
+0) there will be validation page that page scans the student id,
+if the students id is correct meaning that it's valid student and stored our database , redirect to voter dashboard 
+else say this student id is not vallid please check your id   
+1) The logo name must be responsive 
+2) The Candidate information container must be user freindly and responsive this is the very import .
+3) The vote preview modal must be user friendly and responive 
+4) The your Voter modal must be user friendly and must be responsive .
+5) we need to functionality to add our system :
+A) User profile that can be clicable .
+B) When the user profile is clicked a modal should pop up
+C) the Modal Contains image of the user , His name , Date created that user and two buttons: Update button and Sign out button 
+D) when the update button is clicked it most be pop up modal .
+the modal contains all the editable user information:
+image,  there new password and current password to save the changes 
+E) when the sign out button is clicked it destoreys the session and redirects to log in page .
